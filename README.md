@@ -66,10 +66,9 @@ Les exigences non fonctionnelles garantissent la qualité globale de l’applica
 
 ## 🛠️ Technologies envisagées
 
-- **React.js** pour le frontend (UI)
-- **Node.js & Express** pour le backend (API REST)
-- **MongoDB** pour la base de données
-- **Framer Motion / Material UI** pour une interface fluide et moderne
+- **ViteJS** pour le frontend (UI)
+- **Laravel** pour le backend
+- **MySQL** pour la base de données
 
 ---
 
