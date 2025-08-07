@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📘 Chapitre 2 — Spécifications des besoins
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🧩 Introduction
 
-## About Laravel
+Ce chapitre présente en détail les **spécifications fonctionnelles** et **non fonctionnelles** de notre application **LMS (Learning Management System)**, destinée au département STIC de l’ISET de Gabès. Il décrit également les **cas d’utilisation** qui illustrent les interactions entre les différents acteurs du système.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+L’objectif de cette phase est de **définir les exigences** essentielles à la conception, à la mise en œuvre et à l’optimisation des fonctionnalités attendues par les utilisateurs finaux.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 👥 1. Identification des acteurs du système
 
-## Learning Laravel
+Un **acteur** est une entité externe (personne ou système) interagissant avec l’application, soit en consultant, soit en modifiant son état. Trois rôles principaux sont identifiés :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- 🛠️ **Administrateur**
+- 👨‍🏫 **Enseignant**
+- 🎓 **Étudiant**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📋 2. Product Backlog (Méthode Scrum)
 
-## Laravel Sponsors
+Le Product Backlog regroupe l'ensemble des **fonctionnalités à développer**, priorisées selon la méthode **MoSCoW** (Must, Should, Could, Won’t). Chaque **User Story** décrit une action souhaitée par un utilisateur spécifique.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 📌 Méthodologie MoSCoW :
+| Priorité | Signification |
+|----------|----------------|
+| `M` | Must Have – Obligatoire |
+| `S` | Should Have – Important |
+| `C` | Could Have – Optionnel |
+| `W` | Won’t Have – À exclure pour cette version |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 🗂️ Tableau des fonctionnalités principales
 
-## Contributing
+| ID | Fonctionnalité | Acteur(s) | User Story | Priorité |
+|----|----------------|-----------|------------|----------|
+| 1 | Authentification | Admin, Enseignant, Étudiant | En tant qu'utilisateur, je souhaite m’authentifier pour accéder au LMS | M |
+| 2 | Gestion des comptes | Admin | Gérer et consulter les utilisateurs | M |
+| 3 | Profil utilisateur | Enseignant, Étudiant | Modifier mot de passe et infos personnelles | S |
+| 4 | Gestion scolaire | Admin | Gérer classes, matières, salles, spécialités | M |
+| 5 | Affectations | Tous | Gérer et consulter les affectations | M |
+| 6 | Emplois du temps | Tous | Créer/Consulter mon emploi du temps | C |
+| 7 | Mot de passe oublié | Enseignant, Étudiant | Réinitialiser mon mot de passe | S |
+| 8 | Notes | Enseignant, Étudiant | Enregistrer et consulter les notes | S |
+| 9 | Absences | Enseignant, Étudiant | Enregistrer et consulter les absences | S |
+| 10 | Cours | Tous | Gérer et consulter les supports de cours | C |
+| 11 | Demandes | Enseignant, Admin | Gérer les demandes internes | S |
+| 12 | Messagerie | Étudiant | Envoyer un message à un enseignant | S |
+| 13 | Annonces | Admin, Enseignant | Partager et consulter des annonces | C |
+| 14 | Stages | Admin, Enseignant, Étudiant | Gérer et consulter les soutenances | W |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## ⚙️ 3. Besoins non fonctionnels
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Les exigences non fonctionnelles garantissent la qualité globale de l’application :
 
-## Security Vulnerabilities
+- ✅ **Efficacité** : Réactivité et stabilité dans toutes les situations.
+- 🔧 **Maintenabilité & Scalabilité** : Code clair et modulaire pour une évolutivité facile.
+- 🔐 **Sécurité** : Protection renforcée contre les attaques, virus et erreurs humaines.
+- 🎨 **Ergonomie & Esthétique** : Interface épurée et intuitive basée sur le **Material UI**, optimisée pour tous les appareils (UX/UI).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🛠️ Technologies envisagées
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **React.js** pour le frontend (UI)
+- **Node.js & Express** pour le backend (API REST)
+- **MongoDB** pour la base de données
+- **Framer Motion / Material UI** pour une interface fluide et moderne
+
+---
+
+## ✍️ Auteurs
+
+Projet réalisé par :
+
+- **Zidi Amira**
+- **Guefresh Nesrine**
+
+Dans le cadre du projet de fin d'études à l’ISET de Gabès – Département STIC.
+
+---
+
+## 📜 Licence
+
+Ce projet est protégé. Toute reproduction ou réutilisation sans autorisation est interdite.
+
+---
+
